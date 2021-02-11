@@ -3,18 +3,24 @@ package dev.rafuru.datastructures.stack;
 import java.lang.reflect.Array;
 import java.util.Arrays;
 
+/**
+ * Pseudo implementation of a stack
+ * it stores data, it pops and it peeks
+ * @author Rafael Carrillo
+ */
+
 public class Stack<E> {
     
-    private E[] stack ;
+    private Object[] stack ;
     private final int DEFAULT_SIZE = 100;
     private int top = -1;
 
     public Stack(Class<E> clazz){
-        stack = (E[])Array.newInstance(clazz, DEFAULT_SIZE);
+        stack = new Object[DEFAULT_SIZE];
     }
 
     public Stack(Class<E> clazz, int size){
-        stack = (E[])Array.newInstance(clazz, size);
+        stack = new Object[size];
     }
 
     public void push(E object){
@@ -29,15 +35,22 @@ public class Stack<E> {
         if(top == -1){
             return null;
         }
-        return stack[top--];
+        E tmp = elementData(top); 
+        stack[top--] = null;
+        return tmp;
     }
 
     public E peek(){
         if(top == -1){
             return null;
         }
-        return stack[top];
+        return elementData(top);
     }
-    
+
+    // I took this from the ArrayList Implementation to avoid compile warnings
+    @SuppressWarnings("unchecked")
+    private E elementData(int index){
+        return (E) stack[index];
+    }
 
 }
