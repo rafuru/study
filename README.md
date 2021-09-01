@@ -1,2 +1,2 @@
-# study
-different topics 
+# CTCI
+My solutions for CTCI problems
