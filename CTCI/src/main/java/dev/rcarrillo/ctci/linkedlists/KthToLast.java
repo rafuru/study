@@ -1,4 +1,6 @@
-package dev.rcarrillo.ctci.linkedlists.util;
+package dev.rcarrillo.ctci.linkedlists;
+
+import dev.rcarrillo.ctci.linkedlists.util.LinkedList;
 
 /**
  * Implement an algorithm to find the kth to last element of a singly linked list
