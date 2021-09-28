@@ -11,9 +11,9 @@ import dev.rcarrillo.ctci.linkedlists.util.LinkedList;
 public class SumLists {
     public static void main(String[] args) {
         LinkedList number1 = new LinkedList();
-        number1.addAll(9,8,1); // 189
+        number1.addAll(1); // 189
         LinkedList number2 = new LinkedList();
-        number2.addAll(6,3,8); // 836
+        number2.addAll(3,0,0); // 836
 
         LinkedList result = LinkedList.sumLists(number1,number2);
         System.out.println(result);
