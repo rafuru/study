@@ -58,25 +58,35 @@ public class LinkedList {
         return Optional.empty();
     }
 
-    //WIP
     public static LinkedList sumLists(LinkedList number1, LinkedList number2) {
         if (Objects.isNull(number1) || Objects.isNull(number2)) {
             throw new RuntimeException("Numbers can't be null");
         }
-        Node current = number1.head;
-        return null;
-    }
-    //WIP
-    private static int parseNumberFromList(LinkedList list) {
-        StringBuilder sb = new StringBuilder();
-        Node current = list.head;
-        while (Objects.nonNull(current)) {
-            sb.append(current.value);
-            current = current.next;
+        Node currentl1 = number1.head;
+        Node currentl2 = number2.head;
+        int temporaryNumber = 0;
+        LinkedList result = new LinkedList();
+        while(Objects.nonNull(currentl1) || Objects.nonNull(currentl2)){
+            int n1 = 0;
+            int n2 = 0;
+            if(Objects.nonNull(currentl1)){
+                n1 = currentl1.value;
+                currentl1 = currentl1.next;
+            }
+            if(Objects.nonNull(currentl2)){
+                n2 = currentl2.value;
+                currentl2 = currentl2.next;
+            }
+            int sum = n1+n2+temporaryNumber;
+            result.add(sum%10);
+            temporaryNumber = sum/10;
         }
-        return Integer.parseInt(sb.toString());
-
+        if(temporaryNumber>0){
+            result.add(temporaryNumber);
+        }
+        return result;
     }
+
 
 
     @Override
